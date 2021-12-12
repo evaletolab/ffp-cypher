@@ -1,0 +1,54 @@
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.git-BCK
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+package-lock.json
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+
+/os/live-debianfs
+/doc
+
+addons/
+!.gitignore
+!.gitkeep
+!/storage/*/index.html
+!/storage/*/.htaccess
+defines.php
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
