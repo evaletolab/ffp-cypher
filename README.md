@@ -10,10 +10,14 @@ totally unsecure for larges projects
   const rsa = require('../src/RSAKeys');
   const keys = rsa.generateKeys(512);
   //Generate Random public key,
-  //ffp_jb1yruw21v4t0am0tr0msy5iam07oawertgg6joo48vtm30hanf1fabmjnlxnvupcene6qyg836512blucnacq9dja0hght517y5n90iag8izipy1w8hf4ot62bos6vn9o5nn1ygmqgjhuss3xqp9w0b86al  //rks2c95xu9s9ihqf38atrd5r0b6szknf3eronmno1d/qjbiu8xs0msnk88sfh4dhb7va71p7xssw2u4e9b8ijqoh3avh
+  //jb1yruw21v4t0am0tr0msy5iam07oawertgg6joo48vtm30hanf1fabmjnlxnvupcene6qyg836512blu
+  //cnacq9dja0hght517y5n90iag8izipy1w8hf4ot62bos6vn9o5nn1ygmqgjhuss3xqp9w0b86alrks2c9
+  //5xu9s9ihqf38atrd5r0b6szknf3eronmno1d/qjbiu8xs0msnk88sfh4dhb7va71p7xssw2u4e9b8ijqoh3avh
   //-------------------------------------------
   //Generate private key,
-  //PK_ha3mn77xg0dzm1g53xtirzwlnr2kjgrdjcpqlk1dley8s2ulwp6tyd0eryvn9m619eth4fjygntg4cu7ju7fi3c5ek1grizehjyxplq4ui1mk8pykegf7fx4nojeay9nvrhjvamepw1bzt88durduvmvr5500   //qaxv6sznx4wpzm7uroe0r6qzq44e4djnudjwh8xpt
+  //ha3mn77xg0dzm1g53xtirzwlnr2kjgrdjcpqlk1dley8s2ulwp6tyd0eryvn9m619eth4fjygntg4cu7ju
+  //7fi3c5ek1grizehjyxplq4ui1mk8pykegf7fx4nojeay9nvrhjvamepw1bzt88durduvmvr5500qaxv6s
+  //znx4wpzm7uroe0r6qzq44e4djnudjwh8xpt
   //-------------------------------------------
 
 
