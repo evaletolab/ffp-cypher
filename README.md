@@ -1,3 +1,5 @@
+# Super lightweight encryption lib
+totally unsecure for larges projects
 
 # XOR cypher (symmetric)
 
