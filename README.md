@@ -21,24 +21,26 @@ Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encryp
 # Documentation
 * https://brilliant.org/wiki/rsa-encryption/
 
+## relatively Prime
+*  e is relatively Prime of a if PGCD(e,a) = 1
+
 ## modular inverse
-If a aa and NNN are integers such that gcd⁡(a,N)=1, then there exists an integer x xx such that ax≡1(modN). Example:
+If a aa and NNN are integers such that gcd⁡(a,N)=1, then there exists an integer x xx such that ax≡1(modN). 
+* x≡a⁻¹ (mod N) 
+* (a * X) % N = 1
 
-```
- x≡a⁻¹ (mod N)
- x≡3⁻¹ (mod 11)
- 3x≡1 (mod 11)
- 3 * 4 = 12 % 11 = 1
-```
-
-## Modulo operation
+### Modulo operation
 * a² % n = [(a mod n)²] mod n.
 * (a + b) mod n = [(a mod n) + (b mod n)] mod n.
 * ab mod n = [(a mod n)(b mod n)] mod n.
 * https://en.wikipedia.org/wiki/Modulo_operation#Properties_(identities)
 
-## Modulo Power
-* https://en.wikipedia.org/wiki/Modular_exponentiation#Right-to-left_binary_method
+
+## Modular exponentiation 
+* a^e % m (HAC 14.85)
+* https://en.wikipedia.org/wiki/Modular_exponentiation#Pseudocode
+
+
 ## Reference
 
 * a^x % n (HAC 14.79) (HAC 14.85)
