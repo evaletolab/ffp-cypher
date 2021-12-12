@@ -2,7 +2,7 @@ const utils = require('./utils');
 
 const blockSz = 32;
 
-class RSA {
+class RSACipher {
   constructor(bitLength) {
     this.bitLength = bitLength;    
   }
@@ -57,4 +57,4 @@ class RSA {
 }
 
 
-exports.RSA = RSA;
+exports.RSA = RSACipher;

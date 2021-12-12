@@ -1,6 +1,6 @@
-const B64 = require('../utils').B64;
+const B64 = require('./utils').B64;
 
-export class XORCipher {
+ class XORCipher {
   
   constructor() {
     //
@@ -9,13 +9,13 @@ export class XORCipher {
     this.b64 = new B64();
   }
 
-  encode(key, data) {
-    data = this.xor_encrypt(key, data);
+  encrypt(key, data) {
+    data = this.xor_encrypt(key, data.split(''));
     return this.b64.encode(data);
   }
 
-  decode(key, data) {
-    data = this.b64.decode(data);
+  decrypt(key, data) {
+    data = this.b64.decode(data).split('');
     return this.xor_decrypt(key, data);
   }
 
@@ -30,9 +30,13 @@ export class XORCipher {
   }
 
   xor_decrypt(key, data) {
+    
     return data.map((c, i) => {
       return String.fromCharCode( c ^ this.keyCharAt(key, i) );
     }).join('');
   }
 
 }
+
+
+exports.XORCipher = XORCipher; 
