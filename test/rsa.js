@@ -8,7 +8,7 @@ const utils = require('../src/utils');
 describe('rsa', function() {
   let keys;
   let cypher;
-  it('rsa keys', (done) => {
+  it('rsa generate keys', (done) => {
     const rsa = require('../src/RSAKeys');
     const BITs = 128;
     keys = rsa.generateKeys(BITs);
@@ -43,7 +43,7 @@ describe('rsa', function() {
   it('rsa blockToBigInt', (done) => {
     const rsa = new RSA(keys.bits);
     const block = rsa.blockToBigInt("olivier!");
-    console.log('----debug',block);
+    //block.should.be.a.BigInt
     done();
   });
 
@@ -51,13 +51,8 @@ describe('rsa', function() {
     const rsa = new RSA(keys.bits);
     cypher = rsa.encrypt("olivier!",keys.publicKey);
     const message = rsa.decrypt(cypher,keys.publicKey,keys.privateKey);
-    console.log('----debug--> cypher, message',cypher,message);
-    done();
-  });
-  xit('rsa decrypt', (done) => {
-    const rsa = new RSA(keys.bits);
-    message.should.equal('livier!')
-    console.log('----debug',message);
+    message.should.equal('olivier!')
+
     done();
   });
 

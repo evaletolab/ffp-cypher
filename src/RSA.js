@@ -18,16 +18,16 @@ class RSA {
 
   blockToBigInt(block) {
     const bytes = [];
-    for(let i = block.length - 1;i>0;i--){
+    for(let i = block.length - 1;i>=0;i--){
       bytes.push(block.charCodeAt(i).toString(16).padStart(2,'0'));
     }
 
     //
     // padding with 0x00
-    // const pad = Math.max((blockSz) - bytes.length,0);
-    // for(let i = 0;i<pad;i++){
-    //   bytes.push('00');
-    // }
+    const pad = Math.max((blockSz) - bytes.length,0);
+    for(let i = 0;i<pad;i++){
+      bytes.unshift('00');
+    }
     return BigInt('0x' + bytes.join(''));
   }
 
@@ -38,7 +38,6 @@ class RSA {
   decrypt(message,pub,pk) {
     const vector = this.extractK(pub);
     const code= utils.modPow(message,utils.convert(pk,36),vector.n).toString(16);
-    console.log('-----',code)
     let str="";
     for(let i =(code.length-2); i >= 0; i -=2) {
       str += String.fromCharCode(parseInt((code[i]+code[i+1]), 16));
