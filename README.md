@@ -1,6 +1,31 @@
 # Super lightweight encryption lib
 totally unsecure for larges projects
 
+# usage
+
+* asymmetric encryption
+```js
+  //
+  // one step
+  const rsa = require('../src/RSAKeys');
+  const keys = rsa.generateKeys(512);
+
+  // encryption
+  const RSA = require('../src/RSA').RSA;
+  const $rsa = new RSA(keys.bits);
+
+  const cypher = $rsa.encrypt("olivier!",keys.publicKey);
+  const message = $rsa.decrypt(cypher,keys.publicKey,keys.privateKey);
+```
+
+* symmetric encryption
+```js
+  const XOR = require('../src/XOR');
+  const xor = new XOR();
+  const cypher = xor.encrypt("olivier!",'privatekey');
+  const message = xor.decrypt(cypher,'privatekey');
+```
+
 # XOR cypher (symmetric)
 
 ![theorem](https://miro.medium.com/max/656/0*jGUk7VT47UuS0rhi.png)
