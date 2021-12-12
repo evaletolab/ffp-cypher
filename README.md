@@ -11,15 +11,14 @@ Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encryp
 
 # Simple RSA  (asymmetric)
 
+* https://brilliant.org/wiki/rsa-encryption/
 
-* We use 1024-bit (309 digits) keys even if they are considered risky
 * Half of the public key `N=pq`, `e = seed`
 * compute the encrypted message,  `c ≡ m^e(mod N)`
 * compute the original message  `c^d ≡ m (mod N)`
 
 
 # Documentation
-* https://brilliant.org/wiki/rsa-encryption/
 
 ## relatively Prime
 *  e is relatively Prime of a if PGCD(e,a) = 1
