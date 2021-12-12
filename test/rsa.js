@@ -47,15 +47,16 @@ describe('rsa', function() {
     done();
   });
 
-  it('rsa encrypt', (done) => {
+  it('rsa encrypt/decript', (done) => {
     const rsa = new RSA(keys.bits);
     cypher = rsa.encrypt("olivier!",keys.publicKey);
-    console.log('----debug',cypher);
+    const message = rsa.decrypt(cypher,keys.publicKey,keys.privateKey);
+    console.log('----debug--> cypher, message',cypher,message);
     done();
   });
-  it('rsa decrypt', (done) => {
+  xit('rsa decrypt', (done) => {
     const rsa = new RSA(keys.bits);
-    const message = rsa.decrypt(cypher,keys.publicKey,keys.privateKey);
+    message.should.equal('livier!')
     console.log('----debug',message);
     done();
   });

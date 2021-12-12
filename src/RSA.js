@@ -24,10 +24,10 @@ class RSA {
 
     //
     // padding with 0x00
-    const pad = Math.max((blockSz) - bytes.length,0);
-    for(let i = 0;i<pad;i++){
-      bytes.push('00');
-    }
+    // const pad = Math.max((blockSz) - bytes.length,0);
+    // for(let i = 0;i<pad;i++){
+    //   bytes.push('00');
+    // }
     return BigInt('0x' + bytes.join(''));
   }
 
@@ -37,8 +37,13 @@ class RSA {
   // https://github.com/travist/jsencrypt/blob/a993acf21d595e4183d27edf1390339708b2585e/lib/lib/jsbn/jsbn.js#L401
   decrypt(message,pub,pk) {
     const vector = this.extractK(pub);
-    return utils.modPow(message,pk,vector.n);
-
+    const code= utils.modPow(message,utils.convert(pk,36),vector.n).toString(16);
+    console.log('-----',code)
+    let str="";
+    for(let i =(code.length-2); i >= 0; i -=2) {
+      str += String.fromCharCode(parseInt((code[i]+code[i+1]), 16));
+    }
+    return str;
   }
 
   //
