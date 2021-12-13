@@ -9,28 +9,30 @@ const B64 = require('./utils').B64;
     this.b64 = new B64();
   }
 
-  encrypt(key, data) {
-    data = this.xor_encrypt(key, data.split(''));
-    return this.b64.encode(data);
+  encrypt(data, key) {
+    const bytes = this.xor_encrypt(data.split(''), key);
+    return this.b64.encode(bytes);
   }
 
-  decrypt(key, data) {
-    data = this.b64.decode(data).split('');
-    return this.xor_decrypt(key, data);
+  decrypt(data, key) {
+    const bytes = this.b64.decode(data);
+    return this.xor_decrypt(bytes, key);
   }
 
   keyCharAt(key, i) {
     return key.charCodeAt( Math.floor(i % key.length) );
   }
 
-  xor_encrypt(key, data) {
+  xor_encrypt(data, key) {
     return data.map((c, i) => {
-      return c.charCodeAt(0) ^ this.keyCharAt(key, i);
+      return (c.charCodeAt(0) ^ this.keyCharAt(key, i));
     });
   }
 
-  xor_decrypt(key, data) {
-    
+  xor_decrypt(data, key) {    
+    if(typeof data == "string") {
+      data = data.split('').map(c => c.charCodeAt(0));
+    }
     return data.map((c, i) => {
       return String.fromCharCode( c ^ this.keyCharAt(key, i) );
     }).join('');

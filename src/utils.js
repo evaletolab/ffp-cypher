@@ -3,17 +3,17 @@
 //
 // private function
 function b64_decode(b64) {
-  if((typeof window === 'undefined') || !window.btoa) {
+  if((typeof window === 'undefined') || !window.atob) {
     return Buffer.from(b64,'base64').toString();
   }
-  return window.btoa(b64);
+  return window.atob(b64);
 }
 
 function b64_encode(str) {
-  if((typeof window === 'undefined') || !window.atob) {
+  if((typeof window === 'undefined') || !window.btoa) {
     return Buffer.from(str).toString('base64');
   }
-  return window.atob(str);
+  return window.btoa(str);
 }
 
 
