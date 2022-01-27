@@ -5,7 +5,7 @@ totally insecure and naive, use for educational purposes only :fire
 * RSA (for asymmetric encryption)
 * XOR (for symmetric encryption)
 * hacha (super naive Hash function)
-* requiresWork 
+* requiresWork (difficulty is not working)
 * proofOfWork 
 
 # usage
@@ -42,6 +42,21 @@ totally insecure and naive, use for educational purposes only :fire
   const xor = new XOR();
   const cypher = xor.encrypt("olivier!",'privatekey');
   const message = xor.decrypt(cypher,'privatekey');
+```
+
+* proof of work
+```js
+  const requiresWork = require('../src/utils').requiresWork;
+  const proofOfWork = require('../src/utils').proofOfWork;
+
+    const string = 'Olivier is learning something here';
+    //
+    // 
+    const work = requiresWork(string,0x0e0e1n);
+
+    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+
+
 ```
 
 # XOR cypher (symmetric)

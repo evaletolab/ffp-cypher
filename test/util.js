@@ -42,18 +42,20 @@ describe('util', function() {
     done();
   });
 
-  it('requiresWork (long str)', (done) => {
+  it('requiresWork low difficulty and long str', (done) => {
     const string = 'So.. I can see that there is some kind of number size issue happening but do not know how to force JS to treat this number as a long.';
-    const work = requiresWork(string,0x0e0e1n);
-    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+    const difficulty = 0x9999n;
+    const work = requiresWork(string,difficulty);
+    proofOfWork(string,work[1],difficulty).should.equal(true);
     // console.log(work);
     done();
   });
 
-  it('requiresWork (short str)', (done) => {
-    const string = 'Olivier is learning 2';
-    const work = requiresWork(string,0x0e0e1n);
-    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+  it('requiresWork low difficulty short str', (done) => {
+    const difficulty = 0x9999n;
+    const string = 'Olivier is learning something here';
+    const work = requiresWork(string,difficulty);
+    proofOfWork(string,work[1],difficulty).should.equal(true);
     // console.log(work[0].toString(16));
     // console.log(work[1].toString(16));
     done();
