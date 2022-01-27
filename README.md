@@ -4,9 +4,9 @@ totally insecure and naive, use for educational purposes only :fire
 # index
 * RSA (for asymmetric encryption)
 * XOR (for symmetric encryption)
-* hacha (super naive Hash function)
-* requiresWork (difficulty is not working)
-* proofOfWork 
+* hacha (working naive Hash function)
+* requiresWork (string, difficulty)
+* proofOfWork (string, hash, difficulty)
 
 # usage
 
@@ -51,9 +51,12 @@ totally insecure and naive, use for educational purposes only :fire
 
     const string = 'Olivier is learning something here';
     //
-    // 
-    const work = requiresWork(string,0x0e0e1n);
-
+    // CPU difficulty lower => 0x4fffn or higher => 0x8fffn, or 0xffffn 
+    const difficulty = 0x6fffn;
+    const work = requiresWork(string,difficulty);
+    
+    //
+    // verify proof
     proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
 
 
