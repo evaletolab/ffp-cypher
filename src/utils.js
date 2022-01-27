@@ -108,31 +108,35 @@ function modPow(b, e, m) {
   return r;
 }
 
+//
+// simple hash function with 
+// http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/142054
 function hacha(str) {
   const hash = Array.from(str).reduce((hash, char) => {
-    return ((hash << 7n) + BigInt(char.charCodeAt(0) & 0xff) ) + 
-           ((hash << 7n) + BigInt(char.charCodeAt(1) & 0xff) ) +
-           ((hash << 7n) + BigInt(char.charCodeAt(2) & 0xff) ) +
-           ((hash << 7n) + BigInt(char.charCodeAt(3) & 0xff) );
+    return (hash << 6n) + BigInt(char.charCodeAt(0)) + (hash << 16n) - hash ;
   }, 0n);
-  // return 6 bytes!
-  return (hash) & 0xffffffffffffn;  
+  // return 8 bytes!
+  return (hash & 0xffffffffffffffffn) ;  
 }
 
 function requiresWork(string, difficulty) {
-  for (let index = 0;; index++) {
+  for (let index = 0n;; index++) {
     const work = hacha(string+index);
-    // if(work % 0xffffn == 0n) {
-    //   console.log('---',string+index,work, '----',(work & 0xffn), (work % 0xfffn))
+    // if(work % 0xfffn == 0n) {
+    //   console.log('---',index,work.toString(16), '----',(work & 0xffn), (work % 0xfffn))
     // }
-    if(work % difficulty  == 0n) {
+    if((work % difficulty)  == 0n) {
       return [work,index];
     }    
+    // if((work & difficulty)  == 0n) {
+    //   return [work,index];
+    // }    
+
   }
 }
 
 function proofOfWork(string, nonce, difficulty) {
-  return hacha(string+nonce) % difficulty == 0n;
+  return (hacha(string+nonce) % difficulty) == 0n;
 }
 
 exports.B64 = B64;
