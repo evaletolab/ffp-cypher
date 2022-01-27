@@ -1,5 +1,11 @@
 # Super lightweight encryption lib
-totally unsecure for larges projects
+totally insecure and naive, use for educational purposes only :fire
+
+# index
+* RSA (for asymmetric encryption)
+* XOR (for symmetric encryption)
+* requiresWork 
+* proofOfWork 
 
 # usage
 

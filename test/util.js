@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const should = require("chai").should();
 
-const { B64, gcd, relativelyPrime, inverseMod } = require('../src/utils');
+const { B64, gcd, relativelyPrime, inverseMod, hacha, requiresWork, proofOfWork } = require('../src/utils');
 
 describe('util', function() {
   it('B64', (done) => {
@@ -36,5 +36,27 @@ describe('util', function() {
     done();
   });
 
+  it('hacha', (done) => {
+    const hex = hacha('oliviertest');
+    hex.toString(16).should.equal('a723a194e674');
+    done();
+  });
+
+  it('requiresWork (long str)', (done) => {
+    const string = 'So.. I can see that there is some kind of number size issue happening but do not know how to force JS to treat this number as a long.';
+    const work = requiresWork(string,0x0e0e1n);
+    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+    // console.log(work);
+    done();
+  });
+
+  it('requiresWork (short str)', (done) => {
+    const string = 'Olivier is learning 2';
+    const work = requiresWork(string,0x0e0e1n);
+    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+    // console.log(work[0].toString(16));
+    // console.log(work[1].toString(16));
+    done();
+  });
 
 });

@@ -108,9 +108,39 @@ function modPow(b, e, m) {
   return r;
 }
 
+function hacha(str) {
+  const hash = Array.from(str).reduce((hash, char) => {
+    return ((hash << 7n) + BigInt(char.charCodeAt(0) & 0xff) ) + 
+           ((hash << 7n) + BigInt(char.charCodeAt(1) & 0xff) ) +
+           ((hash << 7n) + BigInt(char.charCodeAt(2) & 0xff) ) +
+           ((hash << 7n) + BigInt(char.charCodeAt(3) & 0xff) );
+  }, 0n);
+  // return 6 bytes!
+  return (hash) & 0xffffffffffffn;  
+}
+
+function requiresWork(string, difficulty) {
+  for (let index = 0;; index++) {
+    const work = hacha(string+index);
+    // if(work % 0xffffn == 0n) {
+    //   console.log('---',string+index,work, '----',(work & 0xffn), (work % 0xfffn))
+    // }
+    if(work % difficulty  == 0n) {
+      return [work,index];
+    }    
+  }
+}
+
+function proofOfWork(string, nonce, difficulty) {
+  return hacha(string+nonce) % difficulty == 0n;
+}
+
 exports.B64 = B64;
+exports.hacha = hacha;
 exports.convert = convert;
 exports.gcd = gcd;
 exports.relativelyPrime = relativelyPrime;
 exports.inverseMod = inverseMod;
 exports.modPow = modPow;
+exports.requiresWork = requiresWork;
+exports.proofOfWork = proofOfWork;
