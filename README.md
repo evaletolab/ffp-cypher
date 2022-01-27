@@ -1,5 +1,5 @@
 # Super lightweight encryption lib
-totally insecure and naive, use for educational purposes only :fire
+totally insecure and naive, use for educational purposes only 💖
 
 # index
 * RSA (for asymmetric encryption)
