@@ -57,7 +57,7 @@ totally insecure and naive, use for educational purposes only :fire
     
     //
     // verify proof
-    proofOfWork(string,work[1],0x0e0e1n).should.equal(true);
+    proofOfWork(string,work[1],difficulty).should.equal(true);
 
 
 ```
