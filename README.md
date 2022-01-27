@@ -4,6 +4,7 @@ totally insecure and naive, use for educational purposes only :fire
 # index
 * RSA (for asymmetric encryption)
 * XOR (for symmetric encryption)
+* hacha (super naive Hash function)
 * requiresWork 
 * proofOfWork 
 
