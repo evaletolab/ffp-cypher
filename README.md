@@ -69,6 +69,14 @@ totally insecure and naive, use for educational purposes only 💖
   hex.toString(16).should.equal('57a8eb282a383a5ec');
 ```
 
+# Simple RSA  (asymmetric)
+
+* https://brilliant.org/wiki/rsa-encryption/
+
+* Half of the public key `N=pq`, `e = seed`
+* compute the encrypted message,  `c ≡ m^e(mod N)`
+* compute the original message  `c^d ≡ m (mod N)`
+
 # XOR cypher (symmetric)
 
 ![theorem](https://miro.medium.com/max/656/0*jGUk7VT47UuS0rhi.png)
@@ -78,17 +86,19 @@ Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encryp
 * source [The making of the XOR cipher
 ](https://infosecwriteups.com/the-making-of-the-xor-cipher-794d2e6c964f)
 
+# Our HaHaCha
 
-# Simple RSA  (asymmetric)
+![image](https://user-images.githubusercontent.com/1422935/151530708-b3f11fab-41d8-4172-99b8-3554be087933.png)
 
-* https://brilliant.org/wiki/rsa-encryption/
-
-* Half of the public key `N=pq`, `e = seed`
-* compute the encrypted message,  `c ≡ m^e(mod N)`
-* compute the original message  `c^d ≡ m (mod N)`
-
+* (hash << 6n) + BigInt(char.charCodeAt(0)) + (hash << 16n) - hash ;
 
 # Documentation
+## Math behind Hash functions
+* Pre-Image Resistance, 
+  * it should be computationally hard to reverse a hash function!
+  * it should be hard to find a different input with the same hash!
+  * it should be hard to find two different inputs of any length that result in the same hash( collision)!
+* https://en.wikipedia.org/wiki/Cryptographic_hash_function
 
 ## relatively Prime
 *  e is relatively Prime of a if PGCD(e,a) = 1
