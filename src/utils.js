@@ -109,8 +109,8 @@ function modPow(b, e, m) {
 }
 
 //
-// simple hash function with 
-// http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/142054
+// simple hash function with SDBM algo
+// https://www.partow.net/programming/hashfunctions/
 function hacha(str) {
   const hash = Array.from(str).reduce((hash, char) => {
     return (hash << 6n) + BigInt(char.charCodeAt(0)) + (hash << 16n) - hash ;

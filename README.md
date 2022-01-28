@@ -4,7 +4,7 @@ totally insecure and naive, use for educational purposes only 💖
 # index
 * RSA (for asymmetric encryption)
 * XOR (for symmetric encryption)
-* hacha (working naive Hash function)
+* hacha (simple SDBM algo)
 * requiresWork (string, difficulty)
 * proofOfWork (string, hash, difficulty)
 
@@ -100,6 +100,7 @@ Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encryp
   * it should be hard to find a different input with the same hash!
   * it should be hard to find two different inputs of any length that result in the same hash( collision)!
 * https://en.wikipedia.org/wiki/Cryptographic_hash_function
+* https://www.partow.net/programming/hashfunctions/#SDBMHashFunction
 
 ## relatively Prime
 *  e is relatively Prime of a if PGCD(e,a) = 1
