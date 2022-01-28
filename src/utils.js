@@ -135,8 +135,8 @@ function requiresWork(string, difficulty) {
   }
 }
 
-function proofOfWork(string, nonce, difficulty) {
-  return (hacha(string+nonce) % difficulty) == 0n;
+function proofOfWork(string, hash, nonce) {
+  return (hacha(string+nonce) == hash);
 }
 
 exports.B64 = B64;

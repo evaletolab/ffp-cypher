@@ -46,7 +46,7 @@ describe('util', function() {
     const string = 'So.. I can see that there is some kind of number size issue happening but do not know how to force JS to treat this number as a long.';
     const difficulty = 0x6fffn;// higher => 0x8fffn
     const work = requiresWork(string,difficulty);
-    proofOfWork(string,work[1],difficulty).should.equal(true);    
+    proofOfWork(string,work[0],work[1]).should.equal(true);    
     done();
   });
 
@@ -54,8 +54,8 @@ describe('util', function() {
     const difficulty = 0x6fffn;
     const string = 'Olivier is learning something here';
     const work = requiresWork(string,difficulty);
-    proofOfWork(string,work[1],difficulty).should.equal(true);
-    console.log('--> sharable proof',work[0].toString(16),work[1].toString(16));
+    proofOfWork(string,work[0],work[1]).should.equal(true);
+    console.log('--> proof',work[0].toString(16),work[1].toString(16));
     done();
   });
 
