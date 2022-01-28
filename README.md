@@ -60,7 +60,7 @@ totally insecure and naive, use for educational purposes only 💖
     proofOfWork(string,work[1],difficulty).should.equal(true);
 ```
 
-* acha 
+* hacha 
 ```js
   const hacha = require('../src/utils').hacha;
   //
