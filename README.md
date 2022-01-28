@@ -90,7 +90,8 @@ Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encryp
 
 ![image](https://user-images.githubusercontent.com/1422935/151530708-b3f11fab-41d8-4172-99b8-3554be087933.png)
 
-* (hash << 6n) + BigInt(char.charCodeAt(0)) + (hash << 16n) - hash ;
+* forEach((hash << 6n) + (hash << 16n) + BigInt(char.charCodeAt(0)) - hash);
+* https://www.desmos.com/calculator/hdlcacu5uj
 
 # Documentation
 ## Math behind Hash functions
