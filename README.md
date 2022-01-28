@@ -52,7 +52,7 @@ totally insecure and naive, use for educational purposes only 💖
     const string = 'Olivier is learning something here';
     //
     // CPU difficulty lower => 0x4fffn or higher => 0x8fffn, or 0xffffn 
-    const difficulty = 0x6fffn;
+    const difficulty = 0x6fffn; // ~400ms on my computer
     const work = requiresWork(string,difficulty);
     
     //
@@ -63,7 +63,8 @@ totally insecure and naive, use for educational purposes only 💖
 * acha 
 ```js
   const hacha = require('../src/utils').hacha;
-  // convert string to BigInt decimal of 128bits
+  //
+  // convert string to 128bits BigInt 
   const hex = hacha('oliviertest');
   hex.toString(16).should.equal('57a8eb282a383a5ec');
 ```
