@@ -57,7 +57,7 @@ totally insecure and naive, use for educational purposes only 💖
     
     //
     // verify proof
-    proofOfWork(string,work[1],difficulty).should.equal(true);
+    proofOfWork(string,work[1],work[0]).should.equal(true);
 ```
 
 * hacha 
