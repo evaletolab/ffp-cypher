@@ -58,8 +58,14 @@ totally insecure and naive, use for educational purposes only 💖
     //
     // verify proof
     proofOfWork(string,work[1],difficulty).should.equal(true);
+```
 
-
+* acha 
+```js
+  const hacha = require('../src/utils').hacha;
+  // convert string to BigInt decimal of 128bits
+  const hex = hacha('oliviertest');
+  hex.toString(16).should.equal('57a8eb282a383a5ec');
 ```
 
 # XOR cypher (symmetric)
