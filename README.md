@@ -4,9 +4,9 @@ totally insecure and naive, use for educational purposes only 💖
 # index
 * RSA (for asymmetric encryption)
 * XOR (for symmetric encryption)
-* hacha (simple SDBM algo)
+* hacha (simple SDBM hash function with reasonable entropy)
 * requiresWork (string, difficulty)
-* proofOfWork (string, hash, difficulty)
+* proofOfWork (string, hash, nonce)
 
 # usage
 
