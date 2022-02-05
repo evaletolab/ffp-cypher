@@ -64,7 +64,7 @@ totally insecure and naive, use for educational purposes only 💖
 ```js
   const hacha = require('../src/utils').hacha;
   //
-  // convert string to 128bits BigInt 
+  // convert string to 128bits BigInt with reasonable entropy and poor collision
   const hex = hacha('oliviertest');
   hex.toString(16).should.equal('57a8eb282a383a5ec');
 ```
