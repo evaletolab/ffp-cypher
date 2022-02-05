@@ -69,31 +69,12 @@ totally insecure and naive, use for educational purposes only 💖
   hex.toString(16).should.equal('57a8eb282a383a5ec');
 ```
 
-# Simple RSA  (asymmetric)
-
-* https://brilliant.org/wiki/rsa-encryption/
-
-* Half of the public key `N=pq`, `e = seed`
-* compute the encrypted message,  `c ≡ m^e(mod N)`
-* compute the original message  `c^d ≡ m (mod N)`
-
-# XOR cypher (symmetric)
-
-![theorem](https://miro.medium.com/max/656/0*jGUk7VT47UuS0rhi.png)
-
-Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encrypted message.
-
-* source [The making of the XOR cipher
-](https://infosecwriteups.com/the-making-of-the-xor-cipher-794d2e6c964f)
-
-# Our HaHaCha
-
-![image](https://user-images.githubusercontent.com/1422935/151530708-b3f11fab-41d8-4172-99b8-3554be087933.png)
-
-* forEach((hash << 6n) + (hash << 16n) + BigInt(char.charCodeAt(0)) - hash);
-* https://www.desmos.com/calculator/hdlcacu5uj
-
 # Documentation
+## Entropy 
+* http://www.russellcottrell.com/mousePointerRNG.htm
+* https://pomcor.com/2018/07/04/random-bit-generation-with-full-entropy-and-configurable-prediction-resistance-in-a-node-js-application/
+* https://github.com/usnistgov/SP800-90B_EntropyAssessment
+
 ## Math behind Hash functions
 * Pre-Image Resistance, 
   * it should be computationally hard to reverse a hash function!
@@ -121,8 +102,32 @@ If a aa and NNN are integers such that gcd⁡(a,N)=1, then there exists an integ
 * a^e % m (HAC 14.85)
 * https://en.wikipedia.org/wiki/Modular_exponentiation#Pseudocode
 
+## Our HaHaCha
 
-## Reference
+![image](https://user-images.githubusercontent.com/1422935/151530708-b3f11fab-41d8-4172-99b8-3554be087933.png)
+
+* forEach((hash << 6n) + (hash << 16n) + BigInt(char.charCodeAt(0)) - hash);
+* https://www.desmos.com/calculator/hdlcacu5uj
+
+
+## Simple RSA  (asymmetric)
+
+* https://brilliant.org/wiki/rsa-encryption/
+
+* Half of the public key `N=pq`, `e = seed`
+* compute the encrypted message,  `c ≡ m^e(mod N)`
+* compute the original message  `c^d ≡ m (mod N)`
+
+## XOR cypher (symmetric)
+
+![theorem](https://miro.medium.com/max/656/0*jGUk7VT47UuS0rhi.png)
+
+Let `m` be a plaintext message, `k` be the encryption key, and `c` be the encrypted message.
+
+* source [The making of the XOR cipher
+](https://infosecwriteups.com/the-making-of-the-xor-cipher-794d2e6c964f)
+
+## Notes
 
 * a^x % n (HAC 14.79) (HAC 14.85)
 * x = x/R mod m (HAC 14.32)
