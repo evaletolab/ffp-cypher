@@ -1,5 +1,6 @@
 # Super lightweight encryption lib
-totally insecure and naive, use for educational purposes only 💖
+FFP cypher is totally insecure and naive, use for educational purposes only 💖
+![image](https://github.com/evaletolab/ffp-cypher/assets/1422935/c1433071-68bd-4856-bef3-06c8058f095b)
 
 # index
 * RSA (for asymmetric encryption)
