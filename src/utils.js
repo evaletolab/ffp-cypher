@@ -153,6 +153,7 @@ function proofOfWork(string, hash, nonce) {
 
 exports.B64 = B64;
 exports.hacha = hacha;
+exports.FNV1a = FNV1a;
 exports.convert = convert;
 exports.gcd = gcd;
 exports.relativelyPrime = relativelyPrime;
