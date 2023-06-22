@@ -116,7 +116,19 @@ function hacha(str) {
     return (hash << 6n) + BigInt(char.charCodeAt(0)) + (hash << 16n) - hash ;
   }, 0n);
   // return 8 bytes!
-  return (hash & 0xffffffffffffffffn) ;  
+  return (hash & 0xffffffffffffffffn).padStart(16, '0') ;  
+}
+
+//
+// FNV-1a
+function FNV1a(str) {
+  let hash = 0x811c9dc5n;
+  for (let i = 0; i < str.length; i++) {
+    hash ^= BigInt(str.charCodeAt(i));
+    hash *= 0x01000193n;
+  }
+  
+  return hash.toString(16).padStart(16, '0');
 }
 
 function requiresWork(string, difficulty) {
